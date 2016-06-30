@@ -64,7 +64,7 @@ function clickCard(event) {
             },1000);
         }
     }
-
+    var countCards= 0;
 
 
 }
