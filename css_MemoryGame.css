@@ -3,13 +3,13 @@
     background-color: cornflowerblue;
     color: deeppink;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /*margin: 10px 5px;*/
-}
-.left {
-    margin-left: 800px;
-    margin-top: 100px;
-}
+    margin-left: 900px;
 
+}
+.location{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .card {
     vertical-align: top;
     width: 200px;

@@ -2,7 +2,8 @@
  * Created by itc_user on 6/30/2016.
  */
 
-var genericalCard  = null;
+var genericalCard = null;
+var click = true;
 
 //MAKING THE CARDS
 
@@ -24,7 +25,7 @@ function boardCreate() {
             var img = document.createElement('img');
             img.src = "./img/" + imgArray[count];
             card.appendChild(img);
-           card.addEventListener("click", clickCard);
+            card.addEventListener("click", clickCard);
             row.appendChild(card);
             count++;
         }
@@ -49,39 +50,45 @@ function shuffle(imgArray) {
 
 function clickCard(event) {
 
-    //fliping the cards up
-    var clickedCard = event.target;
-    clickedCard.getElementsByTagName("img")[0].style.display = "inline";
+    //freazing or not the screen 
+    if (click === true) {
 
-    //chosimg the firts card
-    if (genericalCard == null){
-        genericalCard = clickedCard;
-    }
-    //chossing the second cards
-    else{
-        if (genericalCard.getElementsByTagName("img")[0].src == clickedCard.getElementsByTagName("img")[0].src){
-            genericalCard = null;
-            //if they are not a pair,turn back to the background
-        }else{
-            setTimeout(function(){
-                clickedCard.getElementsByTagName("img")[0].style.display = "none";
-                genericalCard.getElementsByTagName("img")[0].style.display = "none";
+        //fliping the cards up
+        var clickedCard = event.target;
+        clickedCard.getElementsByTagName("img")[0].style.display = "inline";
+
+        //chosimg the firts card
+        if (genericalCard == null) {
+            genericalCard = clickedCard;
+        }
+        //chossing the second cards
+        else {
+            if (genericalCard.getElementsByTagName("img")[0].src == clickedCard.getElementsByTagName("img")[0].src) {
                 genericalCard = null;
-            },1000);
+                //if they are not a pair,turn back to the background
+            } else {
+                click = false;
+                setTimeout(function () {
+                    clickedCard.getElementsByTagName("img")[0].style.display = "none";
+                    genericalCard.getElementsByTagName("img")[0].style.display = "none";
+                    genericalCard = null;
+                    click = true;
+                }, 1000);
+
+            }
+        }
+        // user wins...
+        var shownCards = 0;
+        var allCards = document.getElementsByTagName("img");
+
+        for (var i = 0; i < allCards.length; i++) {
+            if (allCards[i].style.display === "inline") {
+                shownCards++;
+            }
+        }
+        if (shownCards === 12) {
+            document.getElementById("popup").style.display = "block";
         }
     }
-    // user wins...
-    var shownCards = 0;
-    var allCards = document.getElementsByTagName("img");
-
-    for (var i = 0; i < allCards.length; i++){
-        if (allCards[i].style.display === "inline"){
-            shownCards++;
-        }
-    }
-    if (shownCards === 12) {
-     document.getElementById("popup").style.display = "block";
-    }
-
 }
 
