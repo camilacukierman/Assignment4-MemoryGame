@@ -3,10 +3,11 @@
     background-color: cornflowerblue;
     color: deeppink;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 10px 5px;
+    /*margin: 10px 5px;*/
 }
 .left {
     margin-left: 800px;
+    margin-top: 100px;
 }
 
 .card {
@@ -15,7 +16,7 @@
     height: 200px;
     font-size: 50px;
     border:  1px black dashed;
-    background-color: #1b6d85;
+    background-image: url('http://i0.statig.com.br/bancodeimagens/di/us/1c/dius1c526qs1dghkm7owg3e5z.jpg');
     margin: 10px 10px;
     display: inline-block;
 
@@ -37,4 +38,15 @@
     background-size: cover;
     background-position: center;
     text-align: center;
+}
+
+#popup {
+
+    display: none;
+    font-size: 50px;
+    background-image: url('http://www.casajoaquimsilva.com.br/images/slider/Lapa_Arches.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+
 }

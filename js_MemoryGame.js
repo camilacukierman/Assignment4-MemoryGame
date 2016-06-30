@@ -45,17 +45,23 @@ function shuffle(imgArray) {
     return imgArray;
 }
 
-//EVENT TO SHOW THE CARD
+//PLAYING THE GAME
 
 function clickCard(event) {
+
+    //fliping the cards up
     var clickedCard = event.target;
     clickedCard.getElementsByTagName("img")[0].style.display = "inline";
+
+    //chosimg the firts card
     if (genericalCard == null){
         genericalCard = clickedCard;
     }
+    //chossing the second cards
     else{
         if (genericalCard.getElementsByTagName("img")[0].src == clickedCard.getElementsByTagName("img")[0].src){
             genericalCard = null;
+            //if they are not a pair,turn back to the background
         }else{
             setTimeout(function(){
                 clickedCard.getElementsByTagName("img")[0].style.display = "none";
@@ -64,8 +70,18 @@ function clickCard(event) {
             },1000);
         }
     }
-    var countCards= 0;
+    // user wins...
+    var shownCards = 0;
+    var allCards = document.getElementsByTagName("img");
 
+    for (var i = 0; i < allCards.length; i++){
+        if (allCards[i].style.display === "inline"){
+            shownCards++;
+        }
+    }
+    if (shownCards === 12) {
+     document.getElementById("popup").style.display = "block";
+    }
 
 }
 
