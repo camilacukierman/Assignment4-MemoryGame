@@ -5,6 +5,7 @@
 var genericalCard = null;
 var click = true;
 
+
 //MAKING THE CARDS
 
 var imgArray = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg", "img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg"];
@@ -73,7 +74,7 @@ function clickCard(event) {
                     genericalCard.getElementsByTagName("img")[0].style.display = "none";
                     genericalCard = null;
                     click = true;
-                }, 1000);
+                }, 200);
 
             }
         }
